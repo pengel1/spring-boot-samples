@@ -4,13 +4,11 @@ DROP TABLE IF EXISTS user;
 
 CREATE TABLE catalog (
   id bigint(20) NOT NULL AUTO_INCREMENT,
-  description varchar(80) NOT NULL,
   name varchar(80) NOT NULL,
+  description varchar(80) NOT NULL,
   PRIMARY KEY (id)
 )
  ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
 
 
 CREATE TABLE user (
