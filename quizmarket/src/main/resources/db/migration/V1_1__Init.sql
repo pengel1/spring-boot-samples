@@ -35,9 +35,11 @@ CREATE TABLE quiz (
 )
 ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
 /*   INSERTS  */
 INSERT INTO catalog(name, description) VALUES('Design', 'DUH');
-INSERT INTO catalog(name, description) VALUES('Programming', 'DUH');
+INSERT INTO catalog(name, description) VALUES( 'Programming', 'DUH');
 INSERT INTO catalog(name, description) VALUES('Marketing', 'DUH');
 INSERT INTO catalog(name, description) VALUES('Science', 'DUH');
 INSERT INTO catalog(name, description) VALUES('Math', 'DUH');

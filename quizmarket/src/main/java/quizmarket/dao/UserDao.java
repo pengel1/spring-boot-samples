@@ -36,7 +36,7 @@ public class UserDao {
   }
 
   public User getByEmailAndToken(String email, String token) {
-    return (User) getSession().createQuery("select * from User where user.email = :email and user.token = :token")
+    return (User) getSession().createQuery("from User where email = :email and token = :token")
             .setParameter("email", email)
             .setParameter("token", token).list().get(0);
   }
