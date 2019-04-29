@@ -35,8 +35,10 @@ public class UserDao {
     return getSession().createQuery("from User").list();
   }
 
-  public User getById(long id) {
-    return (User) getSession().load(User.class, id);
+  public User getByEmailAndToken(String email, String token) {
+    return (User) getSession().createQuery("select * from User where user.email = :email and user.token = :token")
+            .setParameter("email", email)
+            .setParameter("token", token).list().get(0);
   }
 
   public void update(User user) {
@@ -44,4 +46,4 @@ public class UserDao {
     return;
   }
 
-} // class CatalogDao
+} // class UserDao

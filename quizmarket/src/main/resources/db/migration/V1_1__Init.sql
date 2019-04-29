@@ -1,4 +1,6 @@
 DROP TABLE IF EXISTS catalog;
+DROP TABLE IF EXISTS quiz;
+DROP TABLE IF EXISTS user;
 
 CREATE TABLE catalog (
   id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -9,12 +11,15 @@ CREATE TABLE catalog (
  ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+
+
 CREATE TABLE user (
    id bigint(20) NOT NULL AUTO_INCREMENT,
    first_name varchar(80) NOT NULL,
    last_name varchar(80) NOT NULL,
    email varchar(80) NOT NULL,
    image varchar(255) NOT NULL,
+   token varchar(255) NOT NULL,
    PRIMARY KEY (id)
 )
 ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -23,7 +28,7 @@ CREATE TABLE quiz (
     id bigint(20) NOT NULL AUTO_INCREMENT,
     title varchar(80) NOT NULL,
     description varchar(255) NOT NULL,
-    author_id bigint(20) NOT NULL AUTO_INCREMENT,
+    author_id bigint(20) NOT NULL,
     FOREIGN KEY fk_author(author_id)
     REFERENCES user(id)
     ON UPDATE CASCADE

@@ -13,20 +13,30 @@ public class User {
   private long id;
 
   @NotNull
+  @Column(name="first_name")
   @Size(min = 3, max = 80)
   private String firstName;
 
   @NotNull
   @Size(min = 3, max = 80)
+  @Column(name="last_name")
   private String lastName;
 
   @NotNull
+  @Column(name="email")
   @Size(min = 2, max = 80)
   private String email;
 
   @NotNull
+  @Column(name="image")
   @Size(min = 2, max = 255)
   private String image;
+
+  @NotNull
+  @Column(name="token")
+  @Size(min = 2, max = 255)
+  private String token;
+
 
   public User() { }
 
@@ -34,11 +44,12 @@ public class User {
     this.id = id;
   }
 
-  public User(String firstName, String lastName, String email, String image) {
+  public User(String firstName, String lastName, String token, String email, String image) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.image = image;
+    this.token = token;
   }
 
   public long getId() {
@@ -73,12 +84,16 @@ public class User {
     this.email = email;
   }
 
-  public String getImage() {
-    return image;
+  public String getImage() { return image; }
+
+  public void setImage(String image) { this.image = image; }
+
+  public String getToken() {
+    return this.token;
   }
 
-  public void setImage(String image) {
-    this.image = image;
+  public void setToken(String token) {
+    this.token = token;
   }
   
-} // class Catalog
+} // class User

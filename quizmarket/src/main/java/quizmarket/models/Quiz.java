@@ -20,7 +20,8 @@ public class Quiz {
   @Size(min = 3, max = 255)
   private String description;
 
-  @NotNull
+  @OneToOne(fetch = FetchType.LAZY, optional = false)
+  @JoinColumn(name = "author_id", nullable = false)
   private User author;
 
   public Quiz() { }
@@ -57,5 +58,9 @@ public class Quiz {
   public void setDescription(String description) {
     this.description = description;
   }
+
+  public User getAuthor() { return author; }
+
+  public void setAuthor(User author) { this.author = author; }
   
 } // class Catalog

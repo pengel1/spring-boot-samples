@@ -44,4 +44,4 @@ public class QuizDao {
     return;
   }
 
-} // class CatalogDao
+} // class QuizDao
