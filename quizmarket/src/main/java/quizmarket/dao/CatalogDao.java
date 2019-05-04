@@ -15,7 +15,7 @@ public class CatalogDao {
 
   @Autowired
   private SessionFactory _sessionFactory;
-  
+
   private Session getSession() {
     return _sessionFactory.getCurrentSession();
   }
@@ -24,7 +24,7 @@ public class CatalogDao {
     getSession().save(catalog);
     return;
   }
-  
+
   public void delete(Catalog catalog) {
     getSession().delete(catalog);
     return;
