@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import quizmarket.dao.QuizDao;
 import quizmarket.models.Catalog;
 import quizmarket.models.Quiz;
@@ -35,8 +32,8 @@ public class QuizController {
 
   @RequestMapping(value="/", method = RequestMethod.GET)
   @ResponseBody
-  public ResponseEntity get() {
-    List<Quiz> quizzes = _quizDao.getAll();
+  public ResponseEntity get(@RequestParam(value = "search", required=false) final String search) {
+    List<Quiz> quizzes = _quizDao.getAll(search);
     return new ResponseEntity(quizzes, HttpStatus.OK);
   }
 
