@@ -44,3 +44,11 @@ INSERT INTO catalog(name, description) VALUES('Marketing', 'DUH');
 INSERT INTO catalog(name, description) VALUES('Science', 'DUH');
 INSERT INTO catalog(name, description) VALUES('Math', 'DUH');
 INSERT INTO catalog(name, description) VALUES('History', 'DUH');
+
+INSERT INTO user(first_name, last_name, email, image, token) VALUES('Paul', 'Engel', 'pengel1@gmail.com',
+                                                                    'http://image.com', 'token');
+
+INSERT INTO quiz(title, description, author_id) VALUES ('Quiz 1', 'Example Quiz 1',
+                                                        (SELECT id FROM user WHERE email = 'pengel1@gmail.com'));
+INSERT INTO quiz(title, description, author_id) VALUES ('Quiz 2', 'Example Quiz 2',
+                                                        (SELECT id FROM user WHERE email = 'pengel1@gmail.com'));

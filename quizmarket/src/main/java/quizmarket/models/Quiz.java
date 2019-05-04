@@ -20,8 +20,8 @@ public class Quiz {
   @Size(min = 3, max = 255)
   private String description;
 
-  @OneToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "author_id", nullable = false)
+  @ManyToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name="author_id", nullable=false)
   private User author;
 
   public Quiz() { }
@@ -63,4 +63,4 @@ public class Quiz {
 
   public void setAuthor(User author) { this.author = author; }
   
-} // class Catalog
+} // class Quiz
