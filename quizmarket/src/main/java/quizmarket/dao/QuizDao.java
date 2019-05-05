@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import quizmarket.models.Quiz;
 
 import javax.transaction.Transactional;
-import javax.validation.constraints.Null;
 import java.util.List;
 
 @Repository
@@ -34,9 +33,9 @@ public class QuizDao {
   @SuppressWarnings("unchecked")
   public List<Quiz> getAll(String search) {
     search = search == null ? "%" : "%" + search + "%";
-
     System.out.println("QUIZ IS LIKE " + search);
-    return getSession().createQuery("from Quiz where title like :title_param ").setParameter("title_param", search).list();
+    return getSession().createQuery("from Quiz where title like :title_param ")
+            .setParameter("title_param", search).list();
   }
 
   public Quiz getById(long id) {

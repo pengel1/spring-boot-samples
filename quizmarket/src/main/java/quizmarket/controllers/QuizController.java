@@ -3,15 +3,13 @@ package quizmarket.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import quizmarket.dao.QuizDao;
-import quizmarket.models.Catalog;
 import quizmarket.models.Quiz;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(value="/quiz")
 public class QuizController {
 
