@@ -39,7 +39,7 @@ public class QuizDao {
   }
 
   public Quiz getById(long id) {
-    return (Quiz) getSession().load(Quiz.class, id);
+    return (Quiz) getSession().get(Quiz.class, id);
   }
 
   public void update(Quiz quiz) {

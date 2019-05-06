@@ -18,8 +18,8 @@ public class QuizController {
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   @ResponseBody
-  public Quiz getByID(@PathVariable("id") long  id) {
-    return _quizDao.getById(id);
+  public ResponseEntity getByID(@PathVariable("id") long  id) {
+    return new ResponseEntity(_quizDao.getById(id), HttpStatus.OK);
   }
 
   @RequestMapping(value = "/", method = RequestMethod.POST)
