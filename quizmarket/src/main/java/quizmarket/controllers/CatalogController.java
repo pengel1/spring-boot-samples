@@ -33,7 +33,7 @@ public class CatalogController {
     return "Catalog successfully deleted!";
   }
 
-  @RequestMapping(value="/",, method = RequestMethod.GET)
+  @RequestMapping(value="/", method = RequestMethod.GET)
   @ResponseBody
   public ResponseEntity get() {
     List<Catalog> catalogs = _catalogDao.getAll();
