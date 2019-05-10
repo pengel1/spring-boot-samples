@@ -41,6 +41,12 @@ public class UserDao {
             .setParameter("token", token).list().get(0);
   }
 
+  public User getByEmail(String email) {
+    return (User) getSession().createQuery("from User where email = :email")
+            .setParameter("email", email)
+            .list().get(0);
+  }
+
   public void update(User user) {
     getSession().update(user);
     return;

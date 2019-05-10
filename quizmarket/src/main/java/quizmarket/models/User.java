@@ -1,15 +1,18 @@
 package quizmarket.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 
 @Entity
 @Table(name="user")
 @JsonIgnoreProperties(value = { "token", "email" })
-public class User {
+public class User implements UserDetails {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,7 +42,6 @@ public class User {
   @Column(name="token")
   @Size(min = 2, max = 255)
   private String token;
-
 
   public User() { }
 
@@ -98,5 +100,34 @@ public class User {
   public void setToken(String token) {
     this.token = token;
   }
-  
+
+  public Collection<? extends GrantedAuthority> getAuthorities(){
+    return null;
+  }
+
+  public String getPassword(){
+    return token;
+  }
+
+  public String getUsername(){
+    return email;
+  }
+
+  public boolean isAccountNonExpired(){
+    return true;
+  }
+
+  public boolean isAccountNonLocked(){
+    return true;
+  }
+
+  public boolean isCredentialsNonExpired(){
+    return true;
+  }
+
+  public boolean isEnabled(){
+    return true;
+  }
+
+
 } // class User

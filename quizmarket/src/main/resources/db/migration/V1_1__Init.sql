@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS catalog;
 DROP TABLE IF EXISTS question;
 DROP TABLE IF EXISTS quiz;
 DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS authorities;
 
 CREATE TABLE catalog (
   id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -20,6 +21,17 @@ CREATE TABLE user (
    image varchar(255) NOT NULL,
    token varchar(255) NOT NULL,
    PRIMARY KEY (id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE authorities (
+   user_id bigint(20) NOT NULL,
+   authority varchar(50) NOT NULL,
+   FOREIGN KEY user_id_fk(user_id)
+     REFERENCES user(id)
+     ON UPDATE CASCADE
+     ON DELETE RESTRICT,
+    PRIMARY KEY (user_id, authority)
 )
 ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

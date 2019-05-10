@@ -6,7 +6,7 @@ import quizmarket.dao.UserDao;
 import quizmarket.models.User;
 
 @Service
-public class LoginService {
+public class AuthService {
 
     @Autowired
     private UserDao _userDao;
